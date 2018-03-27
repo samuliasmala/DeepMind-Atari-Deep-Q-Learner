@@ -34,7 +34,7 @@ cmd:option('-saveNetworkParams', false,
 cmd:option('-prog_freq', 5*10^3, 'frequency of progress output')
 cmd:option('-save_freq', 5*10^4, 'the model is saved every save_freq steps')
 cmd:option('-eval_freq', 10^4, 'frequency of greedy evaluation')
-cmd:option('-save_versions', 0, '')
+cmd:option('-save_versions', 1000, '')
 
 cmd:option('-steps', 10^5, 'number of training steps to perform')
 cmd:option('-eval_steps', 10^5, 'number of evaluation steps')
