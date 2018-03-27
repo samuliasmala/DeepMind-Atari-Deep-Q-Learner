@@ -72,7 +72,7 @@ im:gifAnimAdd(gif_filename, false, 0, 0, 7, gd.DISPOSAL_NONE)
 
 -- remember the image and show it first
 local previm = im
-local win = image.display({image=screen})
+local win = image.display({image=screen, zoom=6})
 
 print("Started playing...")
 
