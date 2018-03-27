@@ -3,6 +3,8 @@ Copyright (c) 2014 Google Inc.
 See LICENSE file for full terms of limited license.
 ]]
 
+local FRAMERATE = 15
+
 gd = require "gd"
 
 if not dqn then
@@ -76,8 +78,12 @@ local win = image.display({image=screen, zoom=6})
 
 print("Started playing...")
 
+local next_frame = os.clock()
+
 -- play one episode (game)
 while not terminal do
+    repeat until os.clock() > next_frame
+
     -- if action was chosen randomly, Q-value is 0
     agent.bestq = 0
     
@@ -103,6 +109,7 @@ while not terminal do
     -- remember previous screen for optimal compression
     previm = im
 
+    next_frame = os.clock() + 1/FRAMERATE
 end
 
 -- end GIF animation and close CSV file
