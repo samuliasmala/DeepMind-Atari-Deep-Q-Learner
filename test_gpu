@@ -8,6 +8,12 @@ if [ -z "$2" ]
   then echo "Please provide the pretrained network file, e.g.  ./watch_pretrained breakout DQN3_0_1_breakout_FULL_Y.t7"; exit 0
 fi
 
+if [ "$3" ]
+  then seed=$3
+  else seed=$RANDOM
+fi
+echo "Seed: $seed"
+
 ENV=$1
 NETWORK=$2
 FRAMEWORK="alewrap"
@@ -20,7 +26,7 @@ netfile="\"convnet_atari3\""
 update_freq=4
 actrep=4
 discount=0.99
-seed=1
+#seed=1
 #seed=$RANDOM
 learn_start=50000
 pool_frms_type="\"max\""
