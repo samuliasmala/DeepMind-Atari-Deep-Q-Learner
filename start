@@ -1,0 +1,22 @@
+#!/bin/bash
+
+NW_NAME="DQN3_0_1_breakout_FULL_Y.t7"
+if [ "$2" ]
+  then NW_NAME=$2
+fi
+
+case $1 in
+  play)
+    ./test_gpu breakout $NW_NAME $3
+    ;;
+  seed)
+    ./test_gpu breakout DQN3_0_1_breakout_FULL_Y.t7 $2
+    ;;
+  train)
+    ./run_gpu breakout $NW_NAME
+    ;;
+  #Athens last game
+  1)
+    ./test_gpu breakout athens-end-70h.t7 25596
+    ;;
+esac
